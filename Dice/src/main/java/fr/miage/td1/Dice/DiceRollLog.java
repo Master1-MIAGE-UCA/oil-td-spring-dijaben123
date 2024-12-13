@@ -1,15 +1,15 @@
 package fr.miage.td1.Dice;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 public class DiceRollLog {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     private int diceCount;
 
@@ -18,15 +18,32 @@ public class DiceRollLog {
 
     private Date timestamp;
 
-    public DiceRollLog() {}
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getDiceCount() {
+        return diceCount;
+    }
 
     public void setDiceCount(int diceCount) {
         this.diceCount = diceCount;
     }
 
+    public List<Integer> getResults() {
+        return results;
+    }
+
     public void setResults(List<Integer> results) {
         this.results = results;
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
     }
 
     public void setTimestamp(Date timestamp) {
